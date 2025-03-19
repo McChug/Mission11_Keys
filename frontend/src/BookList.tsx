@@ -20,7 +20,7 @@ function BookList() {
     };
 
     fetchBooks();
-  }, [pageSize, pageNumber, totalItems, sortBy]);
+  }, [pageSize, pageNumber, sortBy]);
 
   return (
     <>
@@ -82,7 +82,7 @@ function BookList() {
 
           {[...Array(totalPages)].map((_, i) => (
             <button
-              key={i + 1}
+              key={`p${i + 1}`}
               onClick={() => setPageNumber(i + 1)}
               disabled={pageNumber === i + 1}
             >
