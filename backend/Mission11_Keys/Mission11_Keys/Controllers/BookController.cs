@@ -18,8 +18,10 @@ namespace Mission11_Keys.Controllers
         [HttpGet("AllBooks")]
         public IActionResult GetBooks(int pageSize = 5, int pageNumber = 1, string sortBy = "asc")
         {
+            // Create query object from db table
             var booksQuery = _bookContext.Books.AsQueryable();
 
+            // Ignore "The " when a tital starts with "The " for sorting purposes
             if (sortBy.ToLower() == "desc")
             {
                 booksQuery = booksQuery.OrderByDescending(b => b.Title.StartsWith("The ")
@@ -33,11 +35,13 @@ namespace Mission11_Keys.Controllers
                     : b.Title);
             }
 
+            // Main query
             var bookList = booksQuery
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
 
+            // Return object includes two items
             var returnObject = new
             {
                 BookList = bookList,

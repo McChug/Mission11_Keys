@@ -25,6 +25,7 @@ function BookList() {
   return (
     <>
       <div className="d-flex flex-column gap-3">
+        {/* Results per page */}
         <div className="d-flex justify-content-between">
           <div className="d-flex gap-3">
             <label htmlFor="resultsPerPage">Results per page:</label>
@@ -38,6 +39,7 @@ function BookList() {
               <option>15</option>
             </select>
           </div>
+          {/* Sort by title */}
           <div className="d-flex gap-3">
             <label htmlFor="sortBySelect">Sort by title:</label>
             <select
@@ -50,6 +52,7 @@ function BookList() {
             </select>
           </div>
         </div>
+        {/* Cards */}
         {books.map((b) => (
           <div className="card" key={b.bookId}>
             <div className="card-header">
@@ -68,6 +71,7 @@ function BookList() {
           </div>
         ))}
 
+        {/* Page Controls */}
         <div className="d-flex">
           <button
             disabled={pageNumber === 1}
