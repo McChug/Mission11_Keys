@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mission11_Keys")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+345405f6fa1248f5496a5fc77e421c07d4fa655c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+281b5089ef6bf181a27be42b49e72f7c05e731b8")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mission11_Keys")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mission11_Keys")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

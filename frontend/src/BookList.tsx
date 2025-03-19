@@ -54,7 +54,7 @@ function BookList() {
         </div>
         {/* Cards */}
         {books.map((b) => (
-          <div className="card" key={b.bookId}>
+          <div className="card" key={`b_id${b.bookID}`}>
             <div className="card-header">
               <h2 className="card-title">
                 {b.title} &ndash; {b.author}
