@@ -15,12 +15,36 @@ namespace Mission11_Keys.Controllers
             _bookContext = temp;
         }
 
-        [HttpGet(Name = "GetBook")]
-        public IEnumerable<Book> Get()
+        [HttpGet("AllBooks")]
+        public IActionResult GetBooks(int pageSize = 5, int pageNumber = 1, string sortBy = "asc")
         {
-            var bookList = _bookContext.Books.ToList();
+            var booksQuery = _bookContext.Books.AsQueryable();
 
-            return bookList;
+            if (sortBy.ToLower() == "desc")
+            {
+                booksQuery = booksQuery.OrderByDescending(b => b.Title.StartsWith("The ")
+                    ? b.Title.Substring(4)
+                    : b.Title);
+            }
+            else
+            {
+                booksQuery = booksQuery.OrderBy(b => b.Title.StartsWith("The ")
+                    ? b.Title.Substring(4)
+                    : b.Title);
+            }
+
+            var bookList = booksQuery
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            var returnObject = new
+            {
+                BookList = bookList,
+                TotalNumberBooks = _bookContext.Books.Count()
+            };
+
+            return Ok(returnObject);
         }
     }
 }

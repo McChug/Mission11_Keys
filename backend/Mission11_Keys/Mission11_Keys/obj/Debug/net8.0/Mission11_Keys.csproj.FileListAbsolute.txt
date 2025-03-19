@@ -128,10 +128,10 @@ C:\Users\Seank\source\repos\Mission11_Keys\backend\Mission11_Keys\Mission11_Keys
 C:\Users\Seank\source\repos\Mission11_Keys\backend\Mission11_Keys\Mission11_Keys\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Mission11_Keys.props
 C:\Users\Seank\source\repos\Mission11_Keys\backend\Mission11_Keys\Mission11_Keys\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Mission11_Keys.props
 C:\Users\Seank\source\repos\Mission11_Keys\backend\Mission11_Keys\Mission11_Keys\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\Seank\source\repos\Mission11_Keys\backend\Mission11_Keys\Mission11_Keys\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Seank\source\repos\Mission11_Keys\backend\Mission11_Keys\Mission11_Keys\obj\Debug\net8.0\Mission1.B1DE621B.Up2Date
 C:\Users\Seank\source\repos\Mission11_Keys\backend\Mission11_Keys\Mission11_Keys\obj\Debug\net8.0\Mission11_Keys.dll
 C:\Users\Seank\source\repos\Mission11_Keys\backend\Mission11_Keys\Mission11_Keys\obj\Debug\net8.0\refint\Mission11_Keys.dll
 C:\Users\Seank\source\repos\Mission11_Keys\backend\Mission11_Keys\Mission11_Keys\obj\Debug\net8.0\Mission11_Keys.pdb
 C:\Users\Seank\source\repos\Mission11_Keys\backend\Mission11_Keys\Mission11_Keys\obj\Debug\net8.0\Mission11_Keys.genruntimeconfig.cache
 C:\Users\Seank\source\repos\Mission11_Keys\backend\Mission11_Keys\Mission11_Keys\obj\Debug\net8.0\ref\Mission11_Keys.dll
+C:\Users\Seank\source\repos\Mission11_Keys\backend\Mission11_Keys\Mission11_Keys\obj\Debug\net8.0\Mission11_Keys.sourcelink.json

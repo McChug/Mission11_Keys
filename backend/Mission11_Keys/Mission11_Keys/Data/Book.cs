@@ -22,6 +22,5 @@ namespace Mission11_Keys.Data
         public int pageCount { get; set; }
         [Required]
         public int price { get; set; }
-
     }
 }

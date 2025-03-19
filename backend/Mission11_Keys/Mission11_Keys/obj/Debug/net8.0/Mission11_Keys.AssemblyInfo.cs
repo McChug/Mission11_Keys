@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mission11_Keys")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4bc41f6665d1d0b3d6cb5d9647dc8a33d4f4f259")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mission11_Keys")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mission11_Keys")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
