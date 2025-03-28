@@ -50,5 +50,16 @@ namespace Mission11_Keys.Controllers
 
             return Ok(returnObject);
         }
+
+        [HttpGet("AllBookCategories")]
+        public IActionResult GetBookCategories()
+        {
+            var bookCategories = _bookContext.Books
+            .Select(b => b.Category)
+            .Distinct()
+            .ToList();
+
+            return Ok(bookCategories);
+        }
     }
 }
