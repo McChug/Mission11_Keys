@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Book } from "./types/Book";
+import { Book } from "../types/Book";
 
-function BookList() {
+function BookList({ selectedCategories }: { selectedCategories: string[] }) {
   const [books, setBooks] = useState<Book[]>([]);
   const [pageSize, setPageSize] = useState<number>(5);
   const [pageNumber, setPageNumber] = useState<number>(1);
@@ -11,16 +11,22 @@ function BookList() {
 
   useEffect(() => {
     const fetchBooks = async () => {
-      const url = `https://localhost:5000/api/Book/AllBooks?pageSize=${pageSize}&pageNumber=${pageNumber}&sortBy=${sortBy}`;
+      const categoryParameters = selectedCategories
+        .map((c) => `categories=${encodeURIComponent(c)}`)
+        .join("&");
+
+      const url = `https://localhost:5000/api/Book/AllBooks?pageSize=${pageSize}&pageNumber=${pageNumber}&sortBy=${sortBy}${
+        selectedCategories.length ? `&${categoryParameters}` : ""
+      }`;
       const response = await fetch(url);
       const data = await response.json();
       setBooks(data.bookList);
       setTotalItems(data.totalNumberBooks);
-      setTotalPages(Math.ceil(totalItems / pageSize));
+      setTotalPages(Math.ceil(data.totalNumberBooks / pageSize));
     };
 
     fetchBooks();
-  }, [pageSize, pageNumber, sortBy]);
+  }, [pageSize, pageNumber, sortBy, selectedCategories]);
 
   return (
     <>

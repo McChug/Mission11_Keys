@@ -16,7 +16,7 @@ namespace Mission11_Keys.Controllers
         }
 
         [HttpGet("AllBooks")]
-        public IActionResult GetBooks(int pageSize = 5, int pageNumber = 1, string sortBy = "asc")
+        public IActionResult GetBooks(int pageSize = 5, int pageNumber = 1, string sortBy = "asc", [FromQuery] List<string>? categories = null)
         {
             // Create query object from db table
             var booksQuery = _bookContext.Books.AsQueryable();
@@ -35,6 +35,14 @@ namespace Mission11_Keys.Controllers
                     : b.Title);
             }
 
+            // Filter by categories
+            if (categories != null && categories.Any())
+            {
+                booksQuery = booksQuery.Where(b => categories.Contains(b.Category));
+            }
+
+            int totalNumberBooks = booksQuery.Count();
+
             // Main query
             var bookList = booksQuery
                 .Skip((pageNumber - 1) * pageSize)
@@ -45,7 +53,7 @@ namespace Mission11_Keys.Controllers
             var returnObject = new
             {
                 BookList = bookList,
-                TotalNumberBooks = _bookContext.Books.Count()
+                TotalNumberBooks = totalNumberBooks
             };
 
             return Ok(returnObject);
@@ -55,9 +63,9 @@ namespace Mission11_Keys.Controllers
         public IActionResult GetBookCategories()
         {
             var bookCategories = _bookContext.Books
-            .Select(b => b.Category)
-            .Distinct()
-            .ToList();
+                .Select(b => b.Category)
+                .Distinct()
+                .ToList();
 
             return Ok(bookCategories);
         }
