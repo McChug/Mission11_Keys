@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { Book } from "../types/Book";
+import HandleCart from "./HandleCart";
 
 function BookList({ selectedCategories }: { selectedCategories: string[] }) {
   const [books, setBooks] = useState<Book[]>([]);
   const [pageSize, setPageSize] = useState<number>(5);
   const [pageNumber, setPageNumber] = useState<number>(1);
-  const [totalItems, setTotalItems] = useState<number>(0);
+  // const [totalItems, setTotalItems] = useState<number>(0);
   const [totalPages, setTotalPages] = useState<number>(0);
   const [sortBy, setSortBy] = useState<string>("asc");
 
@@ -21,7 +22,7 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
       const response = await fetch(url);
       const data = await response.json();
       setBooks(data.bookList);
-      setTotalItems(data.totalNumberBooks);
+      // setTotalItems(data.totalNumberBooks);
       setTotalPages(Math.ceil(data.totalNumberBooks / pageSize));
     };
 
@@ -72,6 +73,7 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
                 {b.classification}, {b.category} | {b.pageCount} pages |
                 Published by {b.publisher}
               </p>
+              <HandleCart bookId={b.bookID} title={b.title} price={b.price} />
               <p className="card-isbn">ISBN: {b.isbn}</p>
             </div>
           </div>
