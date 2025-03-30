@@ -17,10 +17,10 @@ function CartPage() {
             {cart.map((item: CartItem) => (
               <div key={item.bookId} className="card w-50">
                 <div className="card-header">
-                  {item.title} &ndash; x{item.quantity}
+                  {item.title} ${item.price.toFixed(2)} &ndash; x{item.quantity}
                 </div>
                 <div className="card-body d-flex justify-content-center align-items-center flex-wrap gap-3">
-                  ${item.price.toFixed(2)}
+                  <p className="m-0">Subtotal: ${item.subtotal.toFixed(2)}</p>
                   <button onClick={() => removeCartItem(item.bookId)}>
                     Remove
                   </button>

@@ -28,6 +28,7 @@ function HandleCart({
       title: title || "No Book Found",
       price,
       quantity: 1,
+      subtotal: price,
     };
     addCartItem(newItem);
     navigate("/cart");
