@@ -73,8 +73,8 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
                 {b.classification}, {b.category} | {b.pageCount} pages |
                 Published by {b.publisher}
               </p>
-              <HandleCart bookId={b.bookID} title={b.title} price={b.price} />
               <p className="card-isbn">ISBN: {b.isbn}</p>
+              <HandleCart bookId={b.bookID} title={b.title} price={b.price} />
             </div>
           </div>
         ))}
