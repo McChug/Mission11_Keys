@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { CartItem } from "../types/CartItem";
 import { useCart } from "../context/CartContext";
 
@@ -11,7 +10,6 @@ function HandleCart({
   title: string;
   price: number;
 }) {
-  const navigate = useNavigate();
   const { addCartItem } = useCart();
 
   const handleAddToCart = ({
@@ -31,7 +29,6 @@ function HandleCart({
       subtotal: price,
     };
     addCartItem(newItem);
-    navigate("/cart");
   };
 
   return (

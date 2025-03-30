@@ -4,7 +4,7 @@ import { useCart } from "../context/CartContext";
 
 function CartPage() {
   const navigate = useNavigate();
-  const { cart, removeCartItem, emptyCart } = useCart();
+  const { cart, totalPrice, removeCartItem, emptyCart } = useCart();
 
   return (
     <div>
@@ -30,7 +30,7 @@ function CartPage() {
           </div>
         )}
       </div>
-      <h2>Total: </h2>
+      <h2>Total: ${totalPrice.toFixed(2)}</h2>
       <button>Checkout</button>
       <button onClick={() => navigate("/")}>Continue Shopping</button>
       {cart.length > 0 && <button onClick={emptyCart}>Clear Cart</button>}

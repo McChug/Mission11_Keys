@@ -3,6 +3,7 @@ import { CartItem } from "../types/CartItem";
 
 interface CartContextType {
   cart: CartItem[];
+  totalPrice: number;
   addCartItem: (item: CartItem) => void;
   removeCartItem: (bookId: number) => void;
   emptyCart: () => void;
@@ -51,9 +52,11 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     setCart(() => []);
   };
 
+  const totalPrice = cart.reduce((sum, item) => sum + item.subtotal, 0);
+
   return (
     <CartContext.Provider
-      value={{ cart, addCartItem, removeCartItem, emptyCart }}
+      value={{ cart, totalPrice, addCartItem, removeCartItem, emptyCart }}
     >
       {children}
     </CartContext.Provider>
