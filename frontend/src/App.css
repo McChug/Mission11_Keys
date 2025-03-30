@@ -5,3 +5,35 @@
   padding: 2rem;
   text-align: center;
 }
+
+.cart-glow {
+  animation: glow 1s ease-in-out;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 0 0 #bee9f6;
+  }
+  50% {
+    box-shadow: 0 0 5px 5px #bee9f6;
+  }
+  100% {
+    box-shadow: 0 0 0 0 #bee9f6;
+  }
+}
+
+.cart-scale {
+  animation: scale 1s ease-in-out;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -4,15 +4,18 @@ import { CartItem } from "../types/CartItem";
 interface CartContextType {
   cart: CartItem[];
   totalPrice: number;
+  cartAnimation: boolean;
   addCartItem: (item: CartItem) => void;
   removeCartItem: (bookId: number) => void;
   emptyCart: () => void;
+  animateCartLink: () => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
+  const [cartAnimation, setCartAnimation] = useState<boolean>(false);
 
   const addCartItem = (item: CartItem) => {
     setCart((prevCart) => {
@@ -54,9 +57,22 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const totalPrice = cart.reduce((sum, item) => sum + item.subtotal, 0);
 
+  const animateCartLink = () => {
+    setCartAnimation(true);
+    setTimeout(() => setCartAnimation(false), 1000);
+  };
+
   return (
     <CartContext.Provider
-      value={{ cart, totalPrice, addCartItem, removeCartItem, emptyCart }}
+      value={{
+        cart,
+        totalPrice,
+        cartAnimation,
+        addCartItem,
+        removeCartItem,
+        emptyCart,
+        animateCartLink,
+      }}
     >
       {children}
     </CartContext.Provider>

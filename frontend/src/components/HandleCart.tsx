@@ -10,7 +10,7 @@ function HandleCart({
   title: string;
   price: number;
 }) {
-  const { addCartItem } = useCart();
+  const { addCartItem, animateCartLink } = useCart();
 
   const handleAddToCart = ({
     bookId,
@@ -29,6 +29,7 @@ function HandleCart({
       subtotal: price,
     };
     addCartItem(newItem);
+    animateCartLink();
   };
 
   return (

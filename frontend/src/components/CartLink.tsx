@@ -3,10 +3,11 @@ import { useCart } from "../context/CartContext";
 
 const CartLink = () => {
   const navigate = useNavigate();
-  const { totalPrice } = useCart();
+  const { totalPrice, cartAnimation } = useCart();
 
   return (
     <div
+      className={cartAnimation ? "cart-glow" : ""}
       style={{
         position: "fixed",
         top: "1rem",
@@ -23,7 +24,7 @@ const CartLink = () => {
       onClick={() => navigate("/cart")}
     >
       <p className="m-0">View Your Cart</p>
-      <div>
+      <div className={cartAnimation ? "cart-scale" : ""}>
         <i className="bi bi-cart"></i> ${totalPrice.toFixed(2)}
       </div>
     </div>
