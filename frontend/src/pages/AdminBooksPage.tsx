@@ -4,8 +4,10 @@ import { deleteBook, fetchBooks } from "../api/BooksAPI";
 import PaginationTop from "../components/PaginationTop";
 import PaginationBottom from "../components/PaginationBottom";
 import BookForm from "../components/BookForm";
+import { useNavigate } from "react-router-dom";
 
 const AdminBookPage = () => {
+  const navigate = useNavigate();
   const [books, setBooks] = useState<Book[]>([]);
   const [pageSize, setPageSize] = useState<number>(5);
   const [pageNumber, setPageNumber] = useState<number>(1);
@@ -52,6 +54,7 @@ const AdminBookPage = () => {
   return (
     <div>
       <h1>Admin &mdash; Book List</h1>
+      <button onClick={() => navigate("/")}>Return to Storefront</button>
 
       {/* Add and Edit form */}
       {!showForm && <button onClick={() => setShowForm(true)}>Add Book</button>}
