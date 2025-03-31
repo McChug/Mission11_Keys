@@ -58,6 +58,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const totalPrice = cart.reduce((sum, item) => sum + item.subtotal, 0);
 
   const animateCartLink = () => {
+    setCartAnimation(false);
     setCartAnimation(true);
     setTimeout(() => setCartAnimation(false), 1000);
   };

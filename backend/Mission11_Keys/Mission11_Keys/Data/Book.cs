@@ -5,7 +5,7 @@ namespace Mission11_Keys.Data
     public class Book
     {
         [Required]
-        public int BookID { get; set; }
+        public int BookId { get; set; }
         [Required]
         public string Title { get; set; }
         [Required]
@@ -19,8 +19,8 @@ namespace Mission11_Keys.Data
         [Required]
         public string Category { get; set; }
         [Required] 
-        public int pageCount { get; set; }
+        public int PageCount { get; set; }
         [Required]
-        public int price { get; set; }
+        public int Price { get; set; }
     }
 }
