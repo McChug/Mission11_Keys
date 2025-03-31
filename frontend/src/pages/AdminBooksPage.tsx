@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Book } from "../types/Book";
-import { fetchBooks } from "../api/BooksAPI";
+import { deleteBook, fetchBooks } from "../api/BooksAPI";
 import PaginationTop from "../components/PaginationTop";
 import PaginationBottom from "../components/PaginationBottom";
+import BookForm from "../components/BookForm";
 
 const AdminBookPage = () => {
   const [books, setBooks] = useState<Book[]>([]);
@@ -12,6 +13,8 @@ const AdminBookPage = () => {
   const [sortBy, setSortBy] = useState<string>("asc");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const [showForm, setShowForm] = useState(false);
+  const [editingBook, setEditingBook] = useState<Book | null>(null);
 
   useEffect(() => {
     const loadProjects = async () => {
@@ -29,12 +32,55 @@ const AdminBookPage = () => {
     loadProjects();
   }, [pageSize, pageNumber, sortBy]);
 
+  const handleDelete = async (bookId: number) => {
+    const confirmDelete = window.confirm(
+      "Hey, you sure about deleting this book?"
+    );
+    if (!confirmDelete) return;
+
+    try {
+      await deleteBook(bookId);
+      setBooks(books.filter((b) => b.bookId !== bookId));
+    } catch (error) {
+      alert("Falied to delete the book. Please try again.");
+    }
+  };
+
   if (loading) return <p>Loading projects...</p>;
   if (error) return <p className="text-danger">Error: {error}</p>;
 
   return (
     <div>
       <h1>Admin &mdash; Book List</h1>
+
+      {/* Add and Edit form */}
+      {!showForm && <button onClick={() => setShowForm(true)}>Add Book</button>}
+
+      {showForm && (
+        <BookForm
+          book={null}
+          onSuccess={() => {
+            setShowForm(false);
+            fetchBooks(pageSize, pageNumber, sortBy, []).then((data) => {
+              setBooks(data.bookList);
+            });
+          }}
+          onCancel={() => setShowForm(false)}
+        />
+      )}
+
+      {editingBook && (
+        <BookForm
+          book={editingBook}
+          onSuccess={() => {
+            setEditingBook(null);
+            fetchBooks(pageSize, pageNumber, sortBy, []).then((data) => {
+              setBooks(data.bookList);
+            });
+          }}
+          onCancel={() => setEditingBook(null)}
+        />
+      )}
 
       {/* Items per page and Sort */}
       <PaginationTop
@@ -76,8 +122,15 @@ const AdminBookPage = () => {
               <td>{b.price}</td>
               <td>{b.isbn}</td>
               <td>
-                <button>Edit</button>
-                <button>Delete</button>
+                <button className="w-100" onClick={() => setEditingBook(b)}>
+                  Edit
+                </button>
+                <button
+                  className="w-100"
+                  onClick={() => handleDelete(b.bookId)}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}

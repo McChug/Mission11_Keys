@@ -78,8 +78,8 @@ namespace Mission11_Keys.Controllers
             return Ok(newBook);
         }
 
-        [HttpPut("Update/{bookId}")]
-        public IActionResult UpdateBook(int bookId, [FromBody] Book updatedBook)
+        [HttpPut("Edit/{bookId}")]
+        public IActionResult EditBook(int bookId, [FromBody] Book updatedBook)
         {
             var existingBook = _bookContext.Books.Find(bookId);
 
