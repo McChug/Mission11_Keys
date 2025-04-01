@@ -49,7 +49,13 @@ const AdminBooksPage = () => {
   };
 
   if (loading) return <p>Loading projects...</p>;
-  if (error) return <p className="text-danger">Error: {error}</p>;
+  if (error)
+    return (
+      <>
+        <p className="text-danger">Error: {error}</p>
+        <button onClick={() => navigate("/")}>Return to Storefront</button>
+      </>
+    );
 
   return (
     <div>

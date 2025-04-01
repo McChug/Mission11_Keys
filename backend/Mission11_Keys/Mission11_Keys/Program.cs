@@ -16,7 +16,7 @@ builder.Services.AddDbContext<BookContext>(options =>
 builder.Services.AddCors(options =>
     options.AddPolicy("AllowReactApp", 
     policy => {
-        policy.WithOrigins("http://localhost:3000")
+        policy.WithOrigins("http://localhost:3000", "https://victorious-grass-04156f01e.6.azurestaticapps.net")
             .AllowAnyMethod()
             .AllowAnyHeader();
     }));
