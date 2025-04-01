@@ -6,7 +6,7 @@ import PaginationBottom from "../components/PaginationBottom";
 import BookForm from "../components/BookForm";
 import { useNavigate } from "react-router-dom";
 
-const AdminBookPage = () => {
+const AdminBooksPage = () => {
   const navigate = useNavigate();
   const [books, setBooks] = useState<Book[]>([]);
   const [pageSize, setPageSize] = useState<number>(5);
@@ -149,4 +149,4 @@ const AdminBookPage = () => {
   );
 };
 
-export default AdminBookPage;
+export default AdminBooksPage;
