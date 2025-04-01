@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "undefined/subscriptions/dc6cbf84-13b8-40c4-a71d-cd9ad6b4ffec/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/BookstoreBackendDelight",
+  "appService.deploySubpath": "backend\\Mission11_Keys\\Mission11_Keys\\publish"
+}
