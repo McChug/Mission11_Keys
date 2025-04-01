@@ -136,3 +136,9 @@ C:\Users\Seank\source\repos\Mission11_Keys\backend\Mission11_Keys\Mission11_Keys
 C:\Users\Seank\source\repos\Mission11_Keys\backend\Mission11_Keys\Mission11_Keys\obj\Debug\net8.0\ref\Mission11_Keys.dll
 C:\Users\Seank\source\repos\Mission11_Keys\backend\Mission11_Keys\Mission11_Keys\obj\Debug\net8.0\Mission11_Keys.sourcelink.json
 C:\Users\Seank\source\repos\Mission11_Keys\backend\Mission11_Keys\Mission11_Keys\bin\Debug\net8.0\Bookstore.sqlite
+C:\Users\Seank\source\repos\Mission11_Keys\backend\Mission11_Keys\Mission11_Keys\bin\Debug\net8.0\publish\web.config
+C:\Users\Seank\source\repos\Mission11_Keys\backend\Mission11_Keys\Mission11_Keys\bin\Debug\net8.0\publish\appsettings.Development.json
+C:\Users\Seank\source\repos\Mission11_Keys\backend\Mission11_Keys\Mission11_Keys\bin\Debug\net8.0\publish\appsettings.json
+C:\Users\Seank\source\repos\Mission11_Keys\backend\Mission11_Keys\Mission11_Keys\bin\Debug\net8.0\publish\Mission11_Keys.deps.json
+C:\Users\Seank\source\repos\Mission11_Keys\backend\Mission11_Keys\Mission11_Keys\bin\Debug\net8.0\publish\Mission11_Keys.runtimeconfig.json
+C:\Users\Seank\source\repos\Mission11_Keys\backend\Mission11_Keys\Mission11_Keys\bin\Debug\net8.0\publish\Mission11_Keys.staticwebassets.endpoints.json

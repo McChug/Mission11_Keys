@@ -15,11 +15,11 @@ builder.Services.AddDbContext<BookContext>(options =>
 
 builder.Services.AddCors(options =>
     options.AddPolicy("AllowReactApp", 
-    policy => {
-        policy.WithOrigins("http://localhost:3000", "https://victorious-grass-04156f01e.6.azurestaticapps.net")
-            .AllowAnyMethod()
-            .AllowAnyHeader();
-    }));
+        policy => {
+            policy.WithOrigins("http://localhost:3000", "https://victorious-grass-04156f01e.6.azurestaticapps.net")
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+}));
 
 var app = builder.Build();
 
@@ -30,9 +30,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors("AllowReactApp");
-
 app.UseHttpsRedirection();
+
+app.UseCors("AllowReactApp");
 
 app.UseAuthorization();
 
